@@ -26,6 +26,34 @@ const works = [
     links: [{ label: "詳しく見る", href: "https://badminton-lp.pages.dev/" }],
   },
 ];
+
+const heroLead =
+  "エスゴは、ソフトウェア開発、特にアプリ開発を中心に活動する個人事業主です。自社サービスの企画・開発・運営から、お客様のプロダクトを支える開発まで、確かな技術と経験でお応えします。";
+
+const services = [
+  {
+    num: "01",
+    title: "アプリ開発",
+    body: "Flutter を用いたクロスプラットフォーム開発で、iOS / Android / Windows / Mac の各環境向けにアプリを構築します。",
+  },
+  {
+    num: "02",
+    title: "ソフトウェア開発全般",
+    body: "Webサイト・バックエンド・業務システムなど、アプリ以外の領域も対応。要件定義から実装まで一貫して開発します。",
+  },
+  {
+    num: "03",
+    title: "新規事業の支援",
+    body: "0 → 1 の立ち上げ経験をベースに、企画段階からの相談・技術選定・プロトタイピングをサポートします。",
+  },
+];
+
+const aboutParagraphs = [
+  "京都大学卒業後、大手 IT コンサルティング会社にて、ネット証券のシステム開発に従事。その後、AI 系スタートアップにて新規事業の企画から開発・運営までを一気通貫で担当。7 年の会社員経験を経て、エスゴとして独立。",
+  "大規模システムの堅牢さと、スタートアップのスピード感、その両方の感覚を持って、事業に役立つソフトウェアを届けたいと考えています。",
+];
+
+const contactLead = "ご相談・お見積りなど、お気軽にお問い合わせください。";
 ---
 
 <Layout>
@@ -47,11 +75,7 @@ const works = [
         <p class="eyebrow">SOFTWARE DEVELOPMENT STUDIO</p>
         <h1 class="hero-title">エスゴ</h1>
         <p class="hero-tagline">想像を、少し超えるものを。</p>
-        <p class="hero-lead">
-          エスゴは、ソフトウェア開発、特にアプリ開発を中心に活動する個人事業主です。
-          自社サービスの企画・開発・運営から、お客様のプロダクトを支える開発まで、
-          確かな技術と経験でお応えします。
-        </p>
+        <p class="hero-lead">{heroLead}</p>
       </div>
     </section>
 
@@ -60,30 +84,15 @@ const works = [
         <p class="section-eyebrow">SERVICES</p>
         <h2 class="section-title">事業内容</h2>
         <div class="services-grid">
-          <article class="service-card">
-            <span class="service-num">01</span>
-            <h3>アプリ開発</h3>
-            <p>
-              Flutter を用いたクロスプラットフォーム開発で、 iOS / Android /
-              Windows / Mac の各環境向けに アプリを構築します。
-            </p>
-          </article>
-          <article class="service-card">
-            <span class="service-num">02</span>
-            <h3>ソフトウェア開発全般</h3>
-            <p>
-              Webサイト・バックエンド・業務システムなど、アプリ以外の
-              領域も対応。要件定義から実装まで一貫して開発します。
-            </p>
-          </article>
-          <article class="service-card">
-            <span class="service-num">03</span>
-            <h3>新規事業の支援</h3>
-            <p>
-              0 → 1 の立ち上げ経験をベースに、企画段階からの相談・技術選定・
-              プロトタイピングをサポートします。
-            </p>
-          </article>
+          {
+            services.map((service) => (
+              <article class="service-card">
+                <span class="service-num">{service.num}</span>
+                <h3>{service.title}</h3>
+                <p>{service.body}</p>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -123,16 +132,7 @@ const works = [
           <p class="about-name">
             黒木 修弥<span class="about-name-en">Shuya Kuroki</span>
           </p>
-          <p>
-            大手 IT コンサルティング会社にて、ネット証券のシステム開発に従事。
-            その後、AI 系スタートアップにて新規事業の企画から開発・運営までを
-            一気通貫で担当。7 年の会社員経験を経て、エスゴとして独立。
-          </p>
-          <p>
-            大規模システムの堅牢さと、スタートアップのスピード感、
-            その両方の感覚を持って、事業に役立つソフトウェアを丁寧に届けたい
-            と考えています。
-          </p>
+          {aboutParagraphs.map((p) => <p>{p}</p>)}
         </div>
       </div>
     </section>
@@ -141,9 +141,7 @@ const works = [
       <div class="container contact-inner">
         <p class="section-eyebrow light">CONTACT</p>
         <h2 class="section-title light">お問い合わせ</h2>
-        <p class="contact-lead">
-          ご相談・お見積りなど、お気軽にお問い合わせください。
-        </p>
+        <p class="contact-lead">{contactLead}</p>
         <a class="contact-mail" href="mailto:kamitte5@gmail.com"
           >kamitte5@gmail.com</a
         >
