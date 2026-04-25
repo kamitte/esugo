@@ -1,23 +1,104 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "エスゴ — ソフトウェア・アプリ開発",
+  description = "エスゴは、ソフトウェア開発、特にアプリ開発を行う個人事業主です。自社サービスの企画・開発・運営から受託開発まで対応しています。",
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  :root {
+    --bg: #faf9f6;
+    --bg-elevated: #ffffff;
+    --fg: #131820;
+    --fg-muted: #5a626d;
+    --fg-subtle: #8a909a;
+    --accent: #14202d;
+    --accent-hover: #1f2d3e;
+    --accent-deep: #0a1118;
+    --border: #e6e3dc;
+    --border-strong: #c8c4ba;
+    --max-w: 1080px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+      "Yu Gothic Medium", YuGothic, Meiryo, sans-serif;
+    line-height: 1.75;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "palt" 1;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
 </style>

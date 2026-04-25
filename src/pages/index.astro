@@ -1,11 +1,628 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const works = [
+  {
+    name: "Plantoto",
+    meta: "植物管理アプリ — iOS / Android",
+    description:
+      "植物のお手入れ記録とリマインド、成長記録をひとまとめにできるアプリ。毎日のささやかな世話を、続けやすく。",
+    href: "#",
+  },
+  {
+    name: "バドデスク",
+    meta: "バドミントン大会運営ソフト — Desktop",
+    description:
+      "組み合わせ作成、結果集計、スコアシート出力、賞状出力までを一気に効率化。大会運営者の煩雑な作業をラクにします。",
+    href: "#",
+  },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">エスゴ</a>
+      <nav class="site-nav">
+        <a href="#services">事業</a>
+        <a href="#works">実績</a>
+        <a href="#about">代表</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">SOFTWARE &amp; APP DEVELOPMENT</p>
+        <h1 class="hero-title">エスゴ</h1>
+        <p class="hero-tagline">良いソフトウェアを、丁寧につくる。</p>
+        <p class="hero-lead">
+          エスゴは、ソフトウェア開発、特にアプリ開発を中心に活動する個人事業主です。
+          自社サービスの企画・開発・運営から、お客様のプロダクトを支える開発まで、
+          確かな技術と経験でお応えします。
+        </p>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <p class="section-eyebrow">SERVICES</p>
+        <h2 class="section-title">事業内容</h2>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-num">01</span>
+            <h3>ソフトウェア開発</h3>
+            <p>
+              要件定義・設計・実装まで一貫して。スタートアップのプロダクトから
+              大規模システムまで、長年培った経験を活かして堅実に開発します。
+            </p>
+          </article>
+          <article class="service-card">
+            <span class="service-num">02</span>
+            <h3>アプリ開発</h3>
+            <p>
+              iOS / Android / デスクトップ。プロダクトのコアとなるアプリを、
+              企画フェーズから運営まで伴走します。
+            </p>
+          </article>
+          <article class="service-card">
+            <span class="service-num">03</span>
+            <h3>新規事業の支援</h3>
+            <p>
+              0 → 1 の立ち上げ経験をベースに、企画段階からの相談・技術選定・
+              プロトタイピングをサポートします。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="works" class="section section-alt">
+      <div class="container">
+        <p class="section-eyebrow">WORKS</p>
+        <h2 class="section-title">自社サービス</h2>
+        <div class="works-grid">
+          {
+            works.map((work) => (
+              <article class="work-card">
+                <h3>{work.name}</h3>
+                <p class="work-meta">{work.meta}</p>
+                <p class="work-body">{work.description}</p>
+                <a class="link-arrow" href={work.href}>
+                  詳しく見る <span aria-hidden="true">→</span>
+                </a>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="about-meta">
+          <p class="section-eyebrow">ABOUT</p>
+          <h2 class="section-title">代表</h2>
+        </div>
+        <div class="about-body">
+          <p class="about-name">
+            黒木 修弥<span class="about-name-en">Shuya Kuroki</span>
+          </p>
+          <p>
+            大手 IT コンサルティング会社にて、ネット証券のシステム開発に従事。
+            その後、AI 系スタートアップにて新規事業の企画から開発・運営までを
+            一気通貫で担当。7 年の会社員経験を経て、エスゴとして独立。
+          </p>
+          <p>
+            大規模システムの堅牢さと、スタートアップのスピード感、
+            その両方の感覚を持って、事業に役立つソフトウェアを丁寧に届けたい
+            と考えています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-dark">
+      <div class="container contact-inner">
+        <p class="section-eyebrow light">CONTACT</p>
+        <h2 class="section-title light">お問い合わせ</h2>
+        <p class="contact-lead">
+          ご相談・お見積りなど、お気軽にお問い合わせください。
+        </p>
+        <a class="contact-mail" href="mailto:kamitte5@gmail.com"
+          >kamitte5@gmail.com</a
+        >
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="brand-small">エスゴ</p>
+        <p class="footer-tagline">Software &amp; App Development</p>
+      </div>
+      <dl class="footer-meta">
+        <div>
+          <dt>代表</dt>
+          <dd>黒木 修弥</dd>
+        </div>
+        <div>
+          <dt>設立</dt>
+          <dd>20XX 年</dd>
+        </div>
+        <div>
+          <dt>所在地</dt>
+          <dd>〒XXX-XXXX 〇〇県〇〇市〇〇</dd>
+        </div>
+        <div>
+          <dt>連絡先</dt>
+          <dd>
+            <a href="mailto:kamitte5@gmail.com">kamitte5@gmail.com</a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+    <div class="container copyright">
+      <p>© 2026 Esugo. All rights reserved.</p>
+    </div>
+  </footer>
 </Layout>
+
+<style>
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 249, 246, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .brand {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  .brand:hover {
+    opacity: 1;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 32px;
+  }
+
+  .site-nav a {
+    color: var(--fg-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .site-nav a:hover {
+    color: var(--accent);
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    .site-nav {
+      gap: 18px;
+    }
+    .site-nav a {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-nav {
+      display: none;
+    }
+  }
+
+  /* Hero */
+  .hero {
+    padding: 140px 0 120px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -120px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(
+      circle at center,
+      rgba(20, 32, 45, 0.05),
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+  }
+
+  .eyebrow,
+  .section-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    color: var(--fg-subtle);
+    margin: 0 0 24px;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    margin: 0 0 32px;
+    font-size: clamp(3rem, 9vw, 5.75rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    font-weight: 600;
+    margin: 0 0 36px;
+    color: var(--fg);
+    letter-spacing: 0.03em;
+  }
+
+  .hero-lead {
+    max-width: 640px;
+    font-size: 1rem;
+    color: var(--fg-muted);
+    line-height: 2;
+    margin: 0;
+  }
+
+  /* Section */
+  .section {
+    padding: 110px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-alt {
+    background: var(--bg-elevated);
+  }
+
+  .section-title {
+    margin: 0 0 60px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 32px;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .section-alt .service-card {
+    background: var(--bg);
+  }
+
+  .service-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -16px rgba(20, 32, 45, 0.18);
+  }
+
+  .service-num {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--fg-subtle);
+    margin-bottom: 18px;
+  }
+
+  .service-card h3 {
+    margin: 0 0 14px;
+    font-size: 1.2rem;
+    color: var(--accent);
+  }
+
+  .service-card p {
+    margin: 0;
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  /* Works */
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .work-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 44px 36px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .section-alt .work-card {
+    background: var(--bg-elevated);
+  }
+
+  .work-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px -20px rgba(20, 32, 45, 0.2);
+  }
+
+  .work-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+
+  .work-meta {
+    font-size: 0.75rem;
+    color: var(--fg-subtle);
+    letter-spacing: 0.18em;
+    margin: 0 0 24px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .work-body {
+    margin: 0 0 32px;
+    color: var(--fg);
+    line-height: 1.95;
+    font-size: 0.97rem;
+  }
+
+  .link-arrow {
+    margin-top: auto;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+    align-self: flex-start;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .link-arrow span {
+    display: inline-block;
+    margin-left: 4px;
+    transition: transform 0.2s;
+  }
+
+  .link-arrow:hover {
+    opacity: 1;
+  }
+
+  .link-arrow:hover span {
+    transform: translateX(4px);
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  @media (max-width: 760px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  .about-meta .section-title {
+    margin-bottom: 0;
+  }
+
+  .about-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 36px;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+
+  .about-name-en {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--fg-subtle);
+    letter-spacing: 0.25em;
+    font-weight: 500;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .about-body p {
+    color: var(--fg-muted);
+    line-height: 2.05;
+    margin: 0 0 22px;
+    font-size: 0.97rem;
+  }
+
+  .about-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Contact */
+  .section-dark {
+    background: var(--accent);
+    color: #f5f3ee;
+    border-bottom: none;
+    padding: 100px 0;
+  }
+
+  .contact-inner {
+    text-align: center;
+  }
+
+  .section-eyebrow.light {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .section-title.light {
+    color: #fff;
+    margin-bottom: 28px;
+  }
+
+  .contact-lead {
+    margin: 0 0 48px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1rem;
+  }
+
+  .contact-mail {
+    display: inline-block;
+    font-size: clamp(1.25rem, 3.5vw, 1.85rem);
+    font-weight: 600;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 8px;
+    letter-spacing: 0.03em;
+  }
+
+  .contact-mail:hover {
+    border-bottom-color: #fff;
+    opacity: 1;
+  }
+
+  /* Footer */
+  .site-footer {
+    background: var(--accent-deep);
+    color: rgba(255, 255, 255, 0.55);
+    padding: 64px 0 32px;
+    font-size: 0.875rem;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 720px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  .brand-small {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0 0 8px;
+  }
+
+  .footer-tagline {
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+  }
+
+  .footer-meta {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px 32px;
+  }
+
+  .footer-meta div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer-meta dt {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .footer-meta dd {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+  }
+
+  .footer-meta dd a {
+    color: inherit;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding-bottom: 1px;
+  }
+
+  .copyright {
+    padding-top: 32px;
+  }
+
+  .copyright p {
+    margin: 0;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.05em;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .service-card,
+    .work-card,
+    .link-arrow span {
+      transition: none;
+    }
+  }
+</style>
