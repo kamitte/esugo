@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://esugo.pages.dev/sitemap-index.xml
