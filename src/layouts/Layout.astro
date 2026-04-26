@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title = "エスゴ — ソフトウェア・アプリ開発",
-  description = "エスゴは、ソフトウェア開発、特にアプリ開発を行う個人事業主です。自社サービスの企画・開発・運営から受託開発まで対応しています。",
+  description = "エスゴは、ソフトウェア開発、特にアプリ開発を中心に活動しています。自社サービスの企画・開発・運営から受託開発まで対応しています。",
 } = Astro.props;
 ---
 
@@ -16,18 +16,8 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
@@ -78,9 +68,9 @@ const {
     background: var(--bg);
     color: var(--fg);
     font-family:
-      -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-      "Yu Gothic Medium", YuGothic, Meiryo, sans-serif;
+      -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans",
+      "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", YuGothic, Meiryo,
+      sans-serif;
     line-height: 1.75;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -103,7 +93,10 @@ const {
   a {
     color: var(--accent);
     text-decoration: none;
-    transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    transition:
+      opacity 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
   }
 
   a:hover {
