@@ -36,9 +36,38 @@ const {
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: "エスゴ",
-        url: "https://esugo.pages.dev/",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://esugo.pages.dev/#website",
+            name: "エスゴ",
+            url: "https://esugo.pages.dev/",
+            inLanguage: "ja",
+            publisher: { "@id": "https://esugo.pages.dev/#organization" },
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://esugo.pages.dev/#organization",
+            name: "エスゴ",
+            url: "https://esugo.pages.dev/",
+            foundingDate: "2025",
+            founder: { "@id": "https://esugo.pages.dev/#kuroki" },
+            email: "kamitte5@gmail.com",
+          },
+          {
+            "@type": "Person",
+            "@id": "https://esugo.pages.dev/#kuroki",
+            name: "黒木 修弥",
+            givenName: "修弥",
+            familyName: "黒木",
+            jobTitle: "代表",
+            worksFor: { "@id": "https://esugo.pages.dev/#organization" },
+            alumniOf: {
+              "@type": "CollegeOrUniversity",
+              name: "京都大学",
+            },
+          },
+        ],
       })}
     />
     <title>{title}</title>
