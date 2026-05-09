@@ -22,6 +22,7 @@ const {
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta property="og:site_name" content="エスゴ" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -29,6 +30,16 @@ const {
     <meta
       name="google-site-verification"
       content="N4YzUGuimENm1whnuqoOpZXrTA-kxc913OTS2fQN3cA"
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "エスゴ",
+        url: "https://esugo.pages.dev/",
+      })}
     />
     <title>{title}</title>
   </head>
